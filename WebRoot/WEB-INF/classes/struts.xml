@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--指定web应用的默认编码集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<!-- 国际化 -->
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+<!-- 	<constant name="struts.locale " value="zh_CN" />	 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire" value="type" />
+	<constant name="struts.ui.theme" value="xhtml" />
+
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.multipart.parser" value="jakarta" />
+	<constant name="struts.multipart.maxSize" value="10000000" />
+	<constant name="struts.devMode" value="true" />
+	<!--是只把get中的参数加入到url参数中 -->
+	<constant name="struts.url.includeParams" value="get" />
+	<!--struts.xml文件系统改变后,系统是否重新加载该文件 -->
+	<constant name="struts.configuration.xml.reload" value="false" />
+	<!-- 配置spring管理 -->
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<!-- 定义附件上传的最大长度 -->
+	<constant name="struts.multipart.maxSize" value="90879300" />
+
+
+
+	<package name="default" extends="struts-default">	
+		<interceptors>
+			<interceptor-stack name="default">
+				<!-- token -->
+<!-- 				<interceptor-ref name="token" /> -->
+				
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="validation" />
+			</interceptor-stack>
+			<!-- 国际化 -->
+			<interceptor name="i18n" class="com.opensymphony.xwork2.interceptor.I18nInterceptor" />
+			
+		</interceptors>
+		<default-interceptor-ref name="default" />
+
+
+
+	</package>
+
+	<include file="struts-business.xml" />
+
+</struts>

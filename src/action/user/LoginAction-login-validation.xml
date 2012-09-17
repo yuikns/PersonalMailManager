@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<validator type="stringlength">
+		<param name="fieldName">username</param>
+<!-- 		<param name="expression"><![CDATA[(check==${code})]]></param> -->
+		<param name="minLength">4</param>
+		<message >error~~</message>
+	</validator>
+
+</validators>
